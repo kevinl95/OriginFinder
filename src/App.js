@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { AppBar, AppBarSection, AppBarSpacer } from '@progress/kendo-react-layout';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppBar>
+        <AppBarSection>
+          <h1>Origin Finder</h1>
+        </AppBarSection>
+        <AppBarSpacer />
+      </AppBar>
+      <AppBar position="bottom">
+        <AppBarSection>
+          <p>Origin Finder</p>
+        </AppBarSection>
+        <AppBarSpacer />
+      </AppBar>
     </div>
   );
 }

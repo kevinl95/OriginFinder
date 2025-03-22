@@ -7,17 +7,19 @@
     "@progress/kendo-popup-common": "^1.9.2",
     "@progress/kendo-react-buttons": "^10.0.0",
     "@progress/kendo-react-intl": "^10.0.0",
+    "@progress/kendo-react-layout": "^10.0.0",
     "@progress/kendo-react-popup": "^10.0.0",
     "@progress/kendo-svg-icons": "^4.0.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "originfindertheme": "file:./originfindertheme",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "originfindertheme": "file:./originfindertheme"
+    "sass": "^1.86.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
