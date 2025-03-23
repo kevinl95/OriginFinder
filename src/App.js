@@ -3,7 +3,8 @@ import { AppBar, AppBarSection, AppBarSpacer } from '@progress/kendo-react-layou
 import { Card, CardHeader, CardBody } from '@progress/kendo-react-layout';
 import { Typography } from '@progress/kendo-react-common';
 import { Button } from '@progress/kendo-react-buttons';
-import BarcodeScannerComponent from 'react-qr-barcode-scanner';
+import { BarcodeScanner, useTorch } from 'react-barcode-scanner'
+import "react-barcode-scanner/polyfill"
 import './index.scss';
 import './App.css'
 
@@ -11,10 +12,15 @@ function App() {
 
   const [data, setData] = useState('Not Found');
   const [scanning, setScanning] = useState(false);
+  const [isSupportTorch, isOpen, setOpen] = useTorch()
 
   const startScanning = () => {
     setScanning(true);
   };
+
+  const onTorchSwitch = () => {
+    setOpen(!isOpen)
+  }
 
   return (
     <div className="App">
@@ -34,13 +40,10 @@ function App() {
           <CardBody>
             <Button onClick={startScanning}>Start Scanning</Button>
             {scanning && (
-              <BarcodeScannerComponent
-                width={500}
-                height={500}
-                onUpdate={(err, result) => {
-                  if (result) setData(result.text);
-                  else setData("Not Found");
-                }}
+              <BarcodeScanner 
+                options={{ formats: ['upc_a', 'upc_e', 'ean_13', 'ean_8'] }}
+                onCapture={(e) => setData(e[0]?.rawValue)}
+                {...isSupportTorch ? <Button onClick={onTorchSwitch}>Turn on Flashlight</Button>: null}
               />
             )}
           </CardBody>
