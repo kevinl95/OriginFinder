@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "OriginTrackr",
+  "name": "Find where your purchases come from using just their barcode",
   "icons": [
     {
       "src": "favicon.ico",
