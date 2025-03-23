@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, AppBarSection, AppBarSpacer, Card, CardHeader, CardBody } from '@progress/kendo-react-layout';
-import BarcodeReader from 'react-barcode-reader';
+import BarcodeScannerComponent from 'react-qr-barcode-scanner';
 import './index.scss';
 import './App.css'
 
@@ -8,21 +8,19 @@ function App() {
 
   const [data, setData] = useState('Not Found');
 
-  const handleScan = (result) => {
+  const handleUpdate = (err, result) => {
     if (result) {
-      setData(result);
+      setData(result.text);
+    } else {
+      setData('Not Found');
     }
-  };
-
-  const handleError = (err) => {
-    console.error(err);
   };
 
   return (
     <div className="App">
       <AppBar>
         <AppBarSection>
-          <h1>Origin Finder</h1>
+          <h1>Origin Tracker</h1>
         </AppBarSection>
         <AppBarSpacer />
       </AppBar>
@@ -30,13 +28,14 @@ function App() {
       <div className="content">
         <Card style={{ backgroundSize: 'cover', color: 'white' }}>
           <CardHeader>
-            <h2>Welcome to Origin Finder</h2>
+            <h2>Welcome to Origin Trackr</h2>
           </CardHeader>
           <CardBody>
             <p>Find the country of origin of a product from its UPC code.</p>
-            <BarcodeReader
-              onError={handleError}
-              onScan={handleScan}
+            <BarcodeScannerComponent
+              width={500}
+              height={500}
+              onUpdate={handleUpdate}
             />
             <p>Scanned Code: {data}</p>
           </CardBody>
@@ -45,7 +44,7 @@ function App() {
 
       <AppBar position="bottom">
         <AppBarSection>
-          <p>Origin Finder</p>
+          <p>Origin Trackr</p>
         </AppBarSection>
         <AppBarSpacer />
       </AppBar>
