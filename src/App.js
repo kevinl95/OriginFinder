@@ -10,14 +10,6 @@ function App() {
   const [data, setData] = useState('Not Found');
   const [scanning, setScanning] = useState(false);
 
-  const handleUpdate = (err, result) => {
-    if (result) {
-      setData(result.text);
-    } else {
-      setData('Not Found');
-    }
-  };
-
   const startScanning = () => {
     setScanning(true);
   };
@@ -43,7 +35,10 @@ function App() {
               <BarcodeScannerComponent
                 width={500}
                 height={500}
-                onUpdate={handleUpdate}
+                onUpdate={(err, result) => {
+                  if (result) setData(result.text);
+                  else setData("Not Found");
+                }}
               />
             )}
             <p>Scanned Code: {data}</p>
