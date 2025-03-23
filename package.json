@@ -7,6 +7,7 @@
     "@progress/kendo-popup-common": "^1.9.2",
     "@progress/kendo-react-buttons": "^10.0.0",
     "@progress/kendo-react-common": "^10.0.0",
+    "@progress/kendo-react-dialogs": "^10.0.0",
     "@progress/kendo-react-intl": "^10.0.0",
     "@progress/kendo-react-layout": "^10.0.0",
     "@progress/kendo-react-popup": "^10.0.0",
