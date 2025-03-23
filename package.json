@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "originfindertheme": "file:./originfindertheme",
     "react": "^19.0.0",
+    "react-barcode-reader": "^0.0.2",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
     "sass": "^1.86.0",
