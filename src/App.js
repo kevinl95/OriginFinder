@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { AppBar, AppBarSection, AppBarSpacer, Card, CardHeader, CardBody } from '@progress/kendo-react-layout';
+import { AppBar, AppBarSection, AppBarSpacer } from '@progress/kendo-react-layout';
+import { Card, CardHeader, CardBody } from '@progress/kendo-react-layout';
+import { Typography } from '@progress/kendo-react-common';
 import { Button } from '@progress/kendo-react-buttons';
 import BarcodeScannerComponent from 'react-qr-barcode-scanner';
 import './index.scss';
@@ -18,18 +20,18 @@ function App() {
     <div className="App">
       <AppBar>
         <AppBarSection>
-          <h1>Origin Trackr</h1>
+          <Typography.h1>Origin Trackr</Typography.h1>
         </AppBarSection>
         <AppBarSpacer />
       </AppBar>
 
       <div className="content">
+        <Typography.p>Find the country of origin of a product from its UPC code.</Typography.p>
         <Card style={{ backgroundSize: 'cover', color: 'white' }}>
           <CardHeader>
-            <h2>Welcome to Origin Trackr</h2>
+          <Typography.h2>Welcome to Origin Trackr</Typography.h2>
           </CardHeader>
           <CardBody>
-            <p>Find the country of origin of a product from its UPC code.</p>
             <Button onClick={startScanning}>Start Scanning</Button>
             {scanning && (
               <BarcodeScannerComponent
@@ -41,14 +43,14 @@ function App() {
                 }}
               />
             )}
-            <p>Scanned Code: {data}</p>
           </CardBody>
         </Card>
+        <Typography.p>Scanned Code: {data}</Typography.p>
       </div>
 
       <AppBar position="bottom">
         <AppBarSection>
-          <p>Origin Trackr</p>
+          <Typography.h2>Origin Trackr</Typography.h2>
         </AppBarSection>
         <AppBarSpacer />
       </AppBar>
