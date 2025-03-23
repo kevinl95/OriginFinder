@@ -78,15 +78,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <AppBar>
         <AppBarSection>
           <Typography.h1>Origin Trackr</Typography.h1>
         </AppBarSection>
         <AppBarSpacer />
       </AppBar>
-      <Typography.h3>Find the country of origin of a product from its UPC code.</Typography.h3>
-      <div className="content" style={{ width: '80%', margin: '0 auto' }}>
+      <Typography.h3>Find the country of origin of a product from its barcode!</Typography.h3>
+      <div className="content" style={{ width: '80%', margin: '0 auto', flex: '1' }}>
         <Card style={{ backgroundSize: 'cover', color: 'white' }}>
           <CardHeader>
             <Typography.h2>Welcome to Origin Trackr</Typography.h2>
@@ -160,7 +160,14 @@ function App() {
       <br></br>
       <AppBar position="bottom">
         <AppBarSection>
-          <Typography.p>Origin Trackr</Typography.p>
+          <Typography.p>Origin Trackr - an open source project by Kevin Loeffler </Typography.p>
+        </AppBarSection>
+        <AppBarSection>
+          <Typography.p>
+            <a href="https://github.com/kevinl95/OriginTrackr" target="_blank" rel="noopener noreferrer">
+              Check out the code on GitHub
+            </a>
+          </Typography.p>
         </AppBarSection>
         <AppBarSpacer />
       </AppBar>
