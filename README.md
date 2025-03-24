@@ -1,5 +1,5 @@
 # OriginTrackr - Find out where your product choices are coming from using your camera
-![Website Deploy](https://deploy-badge.vercel.app/?url=http://www.origintrackr.com)
+![Website Deploy](https://deploy-badge.vercel.app/?url=http://www.origintrackr.com/&name=Vercel)
 
 ![A world map made out of a barcode with the text Origin Trackr displayed below it.](public/logo192.png)
 
