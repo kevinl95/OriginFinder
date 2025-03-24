@@ -161,16 +161,16 @@ function App() {
                 <thead className="k-grid-header">
                   <tr>
                     <th className="k-header" style={{ width: '33%', textAlign: 'left' }}>UPC</th>
-                    <th className="k-header" style={{ width: '33%', textAlign: 'left' }}>Country of Origin</th>
+                    <th className="k-header" style={{ width: '33%', textAlign: 'left' }}>Country</th>
                     <th className="k-header" style={{ width: '33%', textAlign: 'left' }}>Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   {historyData.map((record, index) => (
                     <tr key={index}>
-                      <td className="k-cell" style={{ width: '33%', padding: '10px', wordBreak: 'break-word' }}>{record.upc}</td>
-                      <td className="k-cell" style={{ width: '33%', padding: '10px', wordBreak: 'break-word' }}>{record.country}</td>
-                      <td className="k-cell" style={{ width: '33%', padding: '10px', wordBreak: 'break-word' }}>{record.dayYear}</td>
+                      <td className="k-cell" style={{ width: '33%', wordBreak: 'break-word' }}>{record.upc}</td>
+                      <td className="k-cell" style={{ width: '33%', wordBreak: 'break-word' }}>{record.country}</td>
+                      <td className="k-cell" style={{ width: '33%', wordBreak: 'break-word' }}>{record.dayYear}</td>
                     </tr>
                   ))}
                 </tbody>
