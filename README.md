@@ -7,12 +7,12 @@ A modern web application to help you better identify where products come from du
 
 ## Overview
 
-Built with modern web technologies and featuring Kendo UI Free Components, OriginTrackr provides a robust and user-friendly interface.
+Built with modern web technologies and featuring KendoReact free components, OriginTrackr provides a robust and user-friendly interface.
 
 ## Technologies
 
 - Frontend: React 
-- UI Components: Kendo UI Free Components
+- UI Components: KendoReact free components
 
 ## Features
 
@@ -45,4 +45,4 @@ MIT License
 
 ## Note
 
-This project utilizes Kendo UI Free Components. Please ensure compliance with Progress® Kendo UI® licensing terms when contributing or deploying.
+This project utilizes KendoReact free components. Please ensure compliance with Progress KendoReact licensing terms when contributing or deploying.
