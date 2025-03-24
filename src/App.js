@@ -48,9 +48,7 @@ function App() {
 
     const tx = db.transaction('history', 'readwrite');
     const store = tx.objectStore('history');
-    const date = new Date();
-    const dateString = `${date.toLocaleDateString()}`;
-    await store.add({ upc: data, country: getCountryFromUPC(data), dateString });
+    await store.add({ upc: data, country: getCountryFromUPC(data) });
     await tx.done;
     setDialogVisible(false);
     fetchHistoryData(); // Fetch updated history data
@@ -160,17 +158,15 @@ function App() {
               <table className="k-grid k-widget" style={{ width: '100%' }}>
                 <thead className="k-grid-header">
                   <tr>
-                    <th className="k-header" style={{ width: '33%', textAlign: 'left' }}>UPC</th>
-                    <th className="k-header" style={{ width: '33%', textAlign: 'left' }}>Country</th>
-                    <th className="k-header" style={{ width: '33%', textAlign: 'left' }}>Date</th>
+                    <th className="k-header" style={{ width: '50%', textAlign: 'left' }}>UPC</th>
+                    <th className="k-header" style={{ width: '50%', textAlign: 'left' }}>Country of Origin</th>
                   </tr>
                 </thead>
                 <tbody>
                   {historyData.map((record, index) => (
                     <tr key={index}>
-                      <td className="k-cell" style={{ width: '33%', wordBreak: 'break-word' }}>{record.upc}</td>
-                      <td className="k-cell" style={{ width: '33%', wordBreak: 'break-word' }}>{record.country}</td>
-                      <td className="k-cell" style={{ width: '33%', wordBreak: 'break-word' }}>{record.dayYear}</td>
+                      <td className="k-cell" style={{ width: '50%', padding: '10px', wordBreak: 'break-word' }}>{record.upc}</td>
+                      <td className="k-cell" style={{ width: '50%', padding: '20px', wordBreak: 'break-word' }}>{record.country}</td>
                     </tr>
                   ))}
                 </tbody>
