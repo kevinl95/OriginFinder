@@ -82,11 +82,11 @@ function App() {
   // Let user know if they can use the app offline
   useEffect(() => {
     if ('serviceWorker' in navigator) {
-      if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.ready.then(() => {
         setNotification({ type: 'success', message: 'OriginTrackr loaded successfully. You can use this app offline!' });
-      } else {
+      }).catch(() => {
         setNotification({ type: 'warning', message: 'Service worker not found. Offline functionality may not be available.' });
-      }
+      });
     } else {
       setNotification({ type: 'warning', message: 'Your browser does not support service workers. Offline functionality is not available.' });
     }
