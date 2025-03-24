@@ -5,6 +5,7 @@ import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
 import { Typography } from '@progress/kendo-react-common';
 import { Button } from '@progress/kendo-react-buttons';
 import { Reveal } from '@progress/kendo-react-animation';
+import { Notification, NotificationGroup } from '@progress/kendo-react-notification';
 import { BarcodeScanner, useTorch } from 'react-barcode-scanner';
 import getCountryFromUPC from './countries';
 import { openDB } from 'idb';
@@ -19,6 +20,7 @@ function App() {
   const [isSupportTorch, isOpen, setOpen] = useTorch();
   const [expanded, setExpanded] = React.useState('historyTable');
   const [historyData, setHistoryData] = useState([]);
+  const [notification, setNotification] = useState(null);
 
   const toggleScanning = () => {
     setDialogVisible(false);
@@ -77,6 +79,19 @@ function App() {
     fetchHistoryData();
   }, []);
 
+  // Let user know if they can use the app offline
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      if (navigator.serviceWorker.controller) {
+        setNotification({ type: 'success', message: 'OriginTrackr loaded successfully. You can use this app offline!' });
+      } else {
+        setNotification({ type: 'warning', message: 'Service worker not found. Offline functionality may not be available.' });
+      }
+    } else {
+      setNotification({ type: 'warning', message: 'Your browser does not support service workers. Offline functionality is not available.' });
+    }
+  }, []);
+
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <AppBar>
@@ -86,10 +101,17 @@ function App() {
         <AppBarSpacer />
       </AppBar>
       <Typography.h3>Find the country of origin of a product from its barcode!</Typography.h3>
+      {notification && (
+        <NotificationGroup style={{ right: 0, bottom: 0 }}>
+          <Notification type={{ style: notification.type, icon: true }} closable={true} onClose={() => setNotification(null)}>
+            <span>{notification.message}</span>
+          </Notification>
+        </NotificationGroup>
+      )}
       <div className="content" style={{ width: '80%', margin: '0 auto', flex: '1' }}>
         <Card style={{ backgroundSize: 'cover', color: 'white' }}>
           <CardHeader>
-            <Typography.h2>Welcome to Origin Trackr</Typography.h2>
+            <Typography.h2>Barcode Scanner</Typography.h2>
           </CardHeader>
           <CardBody>
             {scanning && (
