@@ -114,7 +114,7 @@ function App() {
           <CardBody>
             {scanning && (
               <BarcodeScanner 
-                options={{ formats: ['upc_a', 'upc_e', 'ean_13', 'ean_8'] }}
+                options={{ formats: ['upc_a', 'upc_e'] }}
                 onCapture={(e) => {
                   const value = e[0]?.rawValue;
                   setData(value);
