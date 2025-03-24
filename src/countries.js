@@ -149,8 +149,8 @@ const getCountryFromUPC = (upc) => {
     };
 
     // Try three-digit prefix first, then fall back to two-digit
-    const threeDigitPrefix = upc.substring(0, 3);
-    const twoDigitPrefix = upc.substring(0, 2);
+    const threeDigitPrefix = upc.substring(1, 4);
+    const twoDigitPrefix = upc.substring(1, 3);
     
     return countryCodes[threeDigitPrefix] || countryCodes[twoDigitPrefix] || 'Unknown';
 };
