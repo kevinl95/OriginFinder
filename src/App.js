@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AppBar, AppBarSection, AppBarSpacer } from '@progress/kendo-react-layout';
-import { Card, CardHeader, CardBody, ExpansionPanel, ExpansionPanelContent, ExpansionPanelActionEvent } from '@progress/kendo-react-layout';
+import { Card, CardHeader, CardBody, ExpansionPanel, ExpansionPanelContent } from '@progress/kendo-react-layout';
 import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
 import { Typography } from '@progress/kendo-react-common';
 import { Button } from '@progress/kendo-react-buttons';
