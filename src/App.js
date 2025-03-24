@@ -169,7 +169,7 @@ function App() {
                   {historyData.map((record, index) => (
                     <tr key={index}>
                       <td className="k-cell" style={{ width: '33%', padding: '10px', wordBreak: 'break-word' }}>{record.upc}</td>
-                      <td className="k-cell" style={{ width: '33%', padding: '20px', wordBreak: 'break-word' }}>{record.country}</td>
+                      <td className="k-cell" style={{ width: '33%', padding: '10px', wordBreak: 'break-word' }}>{record.country}</td>
                       <td className="k-cell" style={{ width: '33%', padding: '10px', wordBreak: 'break-word' }}>{record.dayYear}</td>
                     </tr>
                   ))}
